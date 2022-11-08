@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changeCategory } from '../../store/categoryReducer';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
+// import ButtonGroup from '@mui/material/ButtonGroup';
+// import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 
 const Categories = (props) => {
@@ -11,7 +14,7 @@ const Categories = (props) => {
 
   return (
     <>
-    <h1>Categories</h1>
+    {/* <h1>Categories</h1>
 
       <ButtonGroup >
 
@@ -19,7 +22,15 @@ const Categories = (props) => {
         <Button onClick={() => changeCategory('clothing')}>Clothing</Button>
         <Button onClick={() => changeCategory('electronics')}>Electronics</Button>
 
-      </ButtonGroup>
+      </ButtonGroup> */}
+
+<Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+      <Tabs value={props} onChange={changeCategory} centered>
+        <Tab onClick={() => changeCategory('clothing')} label="Clothing" />
+        <Tab onClick={() => changeCategory('electronics')} label="Electronics" />
+        <Tab onClick={() => changeCategory('food')} label="Food" />
+      </Tabs>
+    </Box>
    
     </>
   );
