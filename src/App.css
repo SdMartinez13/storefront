@@ -2,7 +2,7 @@
   text-align: center;
 } 
 
-/* .App-header {
+.App-header {
   background-color: pink;
   min-height: 100vh;
   display: flex;
@@ -13,7 +13,7 @@
   color: white;
 }
 
-.App-link {
+/*.App-link {
   color: #61dafb;
 }
 

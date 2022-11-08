@@ -37,8 +37,8 @@ const List = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Add To Cart</Button>
-          <Button size="small">Remove from Cart</Button>
+          <Button variant="outlined" size="small">Add To Cart</Button>
+          <Button variant="outlined" color="error" size="small" centered >Remove from Cart</Button>
         </CardActions>
       </Card>
       </div>
