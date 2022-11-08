@@ -1,11 +1,21 @@
-import './header.scss';
+import { AppBar, IconButton, Toolbar, Typography, } from '@mui/material';
 
-const Header = () => {
+
+export default function Header() {
+
   return (
-    <header className="header">
-      <h1>My Storefront</h1>
-    </header>
-  )
-}
+    <>
+      <AppBar color='transparent'>
+        <Toolbar>
+          <Typography variant='h4' sx={{ flexGrow: 1 }}>
+            My Storefront
+          </Typography>
+          {/* <IconButton aria-label='cart'>
 
-export default Header;
+          </IconButton> */}
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
+    </>
+  );
+}
