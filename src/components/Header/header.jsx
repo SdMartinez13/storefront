@@ -1,7 +1,7 @@
 import React from 'react';
-// import SimpleCart from '../Cart/simpleCart';
-import { AppBar, Toolbar, Typography, } from '@mui/material';
 import { useSelector } from 'react-redux';
+import { AppBar, Toolbar, Typography, } from '@mui/material';
+// import SimpleCart from '../Cart/simpleCart';
 
 
 const Header = () => {
@@ -17,8 +17,8 @@ const Header = () => {
           </Typography>
           {/* <IconButton aria-label='cart'> */}
           {/* </IconButton> */}
-        </Toolbar>
         <a href="#">Cart({cartQuantity.length})</a>
+        </Toolbar>
       {/* <SimpleCart /> */}
       </AppBar>
       <Toolbar />
