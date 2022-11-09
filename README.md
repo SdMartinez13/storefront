@@ -46,3 +46,62 @@
 ## Partners
 
 - [Stephanie Hill](https://github.com/stephnitis)
+
+
+# Lab 37: Redux-combined Reducers
+
+- Virtual Store Phase 1: For this assignment, you will be starting the process of creating an e-Commerce storefront using React with Redux, coupled with your live API server
+
+## Phase 2 Requirements
+
+- In phase 2, we will be adding the “Add to Cart” feature to our application, which will allow our users to not only browse items in the store, but also select them and have them persist in their “shopping cart” for later purchase.
+
+- The user stories from Phase 1 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+
+  - As a user, I want to choose from products in the list and add them to my shopping cart
+  - As a user, I want to see the products that I’ve added to my shopping cart so that
+  - As a user, I want to change the quantity of items I intend to purchase in my shopping cart
+  - As a user, I want to be able to remove an item from my shopping cart
+- Application Flow:
+
+  - User sees a list of categories
+  - … Chooses a category and sees a list of products
+  - … Clicks the “Add to Cart” button on any product
+  - … Clicks the “Cart” link in the header
+  - … Sees a list of all products in the cart
+  - … Clicks the delete button on an item and sees the item removed
+  - … Changes the quantity selector on an item and sees the cart total change
+
+## Technical Requirements/Notes
+
+- And as developers, here are the high level development tasks that address the above end user requirements and workflow
+
+  - Continue to use Material UI Components for layout and styling
+  - Add a “Cart” indicator to the header, like this: Cart (0)
+  - Create a new Cart component to show the items in the user’s cart
+
+## Application Architecture
+
+- Add a new component to the page: `<SimpleCart />`
+  - Displays a short list (title only) of products in the cart
+  - This should be present at all times
+- Home Page Operation:
+  - When the user selects (clicks on) a category …
+    - Identify that category as selected
+    - Show a list of products associated with the category, that have a quantity > 0
+    - Add an “add to cart” button to each product
+  - When a user clicks the “add to cart” button add the item to their cart
+    - In the `<SimpleCart/>` component, show a running list of the items in the cart (just the titles)
+    - Change the (0) indicator in the header to show the actual number of items in the cart
+    - Reduce the number in stock for that product
+
+## UML
+- ![UML]()
+
+- [REPO](https://github.com/SdMartinez13/storefront)
+- [PR]()
+- [Code Sandbox](https://codesandbox.io/p/github/SdMartinez13/storefront/draft/shy-cookies?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522cla7swtxo000rl0f051aferfz%2522%252C%2522openFiles%2522%253A%255B%2522%252FREADME.md%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522key%2522%253A%2522cla7synlc00f03b6hgk2vouir%2522%252C%2522type%2522%253A%2522PROJECT_SETUP%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522cla7sxhmj007g3b6hwcdop3d7%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522cla7sxeob005i3b6hujtibljb%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D) Code Sandbox would not let me copy the redux branch so this is the main
+
+## Partners
+
+- [Stephanie Hill](https://github.com/stephnitis)

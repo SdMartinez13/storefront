@@ -21,7 +21,7 @@ function categoryReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case 'CHANGE CATEGORY':
+    case 'CHANGE_CATEGORY':
       return {
         ...state,
         activeCategory: payload,
@@ -39,7 +39,7 @@ function categoryReducer(state = initialState, action) {
 export const changeCategory = (activeCategory) => {
 
   return {
-    type: 'CHANGE CATEGORY',
+    type: 'CHANGE_CATEGORY',
     payload: activeCategory,
   };
 };

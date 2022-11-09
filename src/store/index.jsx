@@ -2,9 +2,11 @@ import { createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import categoryReducer from './categoryReducer';
+import cartReducer from './cartReducer';
 
 let reducers = combineReducers({
-  categoryReducer: categoryReducer,
+  category: categoryReducer,
+  cart: cartReducer,
 })
 
 export default function store() {
