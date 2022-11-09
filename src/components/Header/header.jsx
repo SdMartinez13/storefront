@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppBar, Toolbar, Typography, } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 // import SimpleCart from '../Cart/simpleCart';
 
 
@@ -15,10 +16,9 @@ const Header = () => {
           <Typography variant='h4' sx={{ flexGrow: 1 }}>
             My Storefront
           </Typography>
-          {/* <IconButton aria-label='cart'> */}
-          {/* </IconButton> */}
-        <a href="#">Cart({cartQuantity.length})</a>
         </Toolbar>
+          <IconButton aria-label='cart'>Cart({cartQuantity.length})</IconButton> 
+        {/* <a href="#"></a> */}
       {/* <SimpleCart /> */}
       </AppBar>
       <Toolbar />

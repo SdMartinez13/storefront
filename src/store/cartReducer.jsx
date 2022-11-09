@@ -11,7 +11,7 @@ function cartReducer(state = initialState, action) {
     case 'ADD_TO_CART':
       let cart = {
         itemsToPurchase: [...state.itemsToPurchase, payload],
-        cartQuantity: state.cartQuantity + 1,
+        cart: state.cartQuantity + 1,
 
       }
       return cart; 
@@ -20,7 +20,7 @@ function cartReducer(state = initialState, action) {
       return {
         ...state,
         itemsToPurchase: state.itemsToPurchase.filter(product => product !== payload),
-        cartQuantity: state.cartQuantity - 1,
+        cart: state.cartQuantity - 1,
       }
 
     // case 'VIEW':
