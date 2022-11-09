@@ -11,11 +11,12 @@ import Tab from '@mui/material/Tab';
 
 const Categories = (props) => {
 
-  const { changeCategory } = props;
+  // const { changeCategory } = props;
 
-  const [value, setValue] = React.useState('one');
+  const [value, setValue] = React.useState(0, 1, 2);
 
   const handleChange = (event, newValue) => {
+    event.preventDefault();
     setValue(newValue);
   };
   return (
@@ -31,16 +32,23 @@ const Categories = (props) => {
       </ButtonGroup> */}
 
       <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        <Tabs value={value}
-              onChange={handleChange}
-              textColor="inherit"
-              indicatorColor="secondary"
-              aria-label="secondary tabs example"
-              centered
+        <Tabs 
+          value={value}
+          onChange={handleChange}
+          textColor="inherit"
+          indicatorColor="secondary"
+          aria-label="secondary tabs example"
+          centered
         >
-          <Tab onClick={() => changeCategory('clothing')} label="Clothing" />
-          <Tab onClick={() => changeCategory('electronics')} label="Electronics" />
-          <Tab onClick={() => changeCategory('food')} label="Food" />
+          {
+            props.categories.map((category, index) => (
+
+              <Tab key={`category-${index}`} onClick={() => props.changeCategory(category.name)} label={category.displayName} />
+            ))
+
+          }
+          {/* <Tab onClick={() => props.changeCategory('electronics')} label="Electronics" />
+          <Tab onClick={() => props.changeCategory('food')} label="Food" /> */}
         </Tabs>
       </Box>
 
@@ -48,10 +56,10 @@ const Categories = (props) => {
   );
 };
 
-const mapsStateToProps = ({ categoryReducer }) => {
+const mapsStateToProps = (state) => {
 
   return {
-    categories: categoryReducer,
+    categories: state.category.categories,
   };
 };
 
