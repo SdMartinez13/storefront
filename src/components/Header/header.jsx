@@ -1,8 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AppBar, Toolbar, Typography, } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-// import SimpleCart from '../Cart/simpleCart';
+import { AppBar, Toolbar, Typography, Button, Stack } from '@mui/material';
+// import IconButton from '@mui/material/IconButton';
+// import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import SimpleCart from '../Cart/simpleCart';
+import './header.scss';
 
 
 const Header = () => {
@@ -11,17 +13,33 @@ const Header = () => {
 
   return (
     <>
-      <AppBar color='transparent'>
-        <Toolbar>
-          <Typography variant='h4' sx={{ flexGrow: 1 }}>
+      <AppBar className='appBar' position='static' color='transparent'>
+
+        <Stack
+          direction='row'
+          justifyContent='space-between'
+          alignItems='center'>
+
+          <Typography
+            variant='h4'
+            color='inherit'
+            component='div'>
+
             My Storefront
+
           </Typography>
-        </Toolbar>
-          <IconButton aria-label='cart'>Cart({cartQuantity.length})</IconButton> 
-        {/* <a href="#"></a> */}
-      {/* <SimpleCart /> */}
+
+        </Stack>
+
+        <div id='cartDisplay'>
+
+          <SimpleCart />
+
+        </div>
+
       </AppBar>
-      <Toolbar />
+
+      <Toolbar></Toolbar>
     </>
   );
 }
