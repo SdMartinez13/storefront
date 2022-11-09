@@ -1,9 +1,12 @@
 import React from 'react';
 // import SimpleCart from '../Cart/simpleCart';
 import { AppBar, Toolbar, Typography, } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 
-export default function Header() {
+const Header = () => {
+
+  let cartQuantity = useSelector(state => state.cart.cartQuantity)
 
   return (
     <>
@@ -15,9 +18,12 @@ export default function Header() {
           {/* <IconButton aria-label='cart'> */}
           {/* </IconButton> */}
         </Toolbar>
+        <a href="#">Cart({cartQuantity.length})</a>
       {/* <SimpleCart /> */}
       </AppBar>
       <Toolbar />
     </>
   );
 }
+
+export default Header;
