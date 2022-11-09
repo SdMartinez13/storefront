@@ -56,10 +56,9 @@ const List = (props) => {
   )
 }
 
-const mapStateToProps = ({ category, cartReducer }) => {
+const mapStateToProps = ({ category }) => {
   return {
     activeCategory: category.activeCategory,
-    // cart: cartReducer,
     products: category.products,
   }
 }

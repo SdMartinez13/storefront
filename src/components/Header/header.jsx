@@ -1,4 +1,6 @@
-import { AppBar, IconButton, Toolbar, Typography, } from '@mui/material';
+import React from 'react';
+import SimpleCart from '../Cart/simpleCart';
+import { AppBar, Toolbar, Typography, } from '@mui/material';
 
 
 export default function Header() {
@@ -10,10 +12,10 @@ export default function Header() {
           <Typography variant='h4' sx={{ flexGrow: 1 }}>
             My Storefront
           </Typography>
-          {/* <IconButton aria-label='cart'>
-
-          </IconButton> */}
+          {/* <IconButton aria-label='cart'> */}
+          {/* </IconButton> */}
         </Toolbar>
+      <SimpleCart />
       </AppBar>
       <Toolbar />
     </>

@@ -1,6 +1,6 @@
 const initialState = {
   itemsToPurchase: [],
-  itemsCount: 0
+  cartQuantity: 0,
 
 }
 
@@ -11,23 +11,25 @@ function cartReducer(state = initialState, action) {
     case 'ADD_TO_CART':
       let cart = {
         itemsToPurchase: [...state.itemsToPurchase, payload],
-        itemCount: state.itemsCount + 1,
+        cartQuantity: state.cartQuantity + 1,
 
       }
-      return cart 
+      return cart; 
 
     case 'REMOVE_FROM_CART':
       return {
-        itemsToPurchase: {},
+        ...state,
+        itemsToPurchase: state.itemsToPurchase.filter(product => product !== payload),
+        cartQuantity: state.cartQuantity - 1,
       }
 
-    case 'VIEW':
-      return {
-        itemsToPurchase: {},
-      }
+    // case 'VIEW':
+    //   return {
+    //     itemsToPurchase: {},
+    //   }
 
-    case 'RESET':
-      return initialState;
+    // case 'RESET':
+    //   return initialState;
 
     default:
       return initialState;
@@ -49,12 +51,12 @@ export const removeItemFromCart = (product) => {
   }
 }
 
-export const viewItemsInCart = (product) => {
-  return {
-    type: 'VIEW',
-    payload: product,
-  }
-}
+// export const viewItemsInCart = (product) => {
+//   return {
+//     type: 'VIEW',
+//     payload: product,
+//   }
+// }
 
 // export const resetCart = (product) => {
 //   return {

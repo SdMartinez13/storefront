@@ -7,8 +7,8 @@ import cartReducer from './cartReducer';
 let reducers = combineReducers({
   category: categoryReducer,
   cart: cartReducer,
-})
+});
 
 export default function store() {
-  return createStore(reducers, composeWithDevTools());
+  return createStore(reducers, composeWithDevTools())
 }
