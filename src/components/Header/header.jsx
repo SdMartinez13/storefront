@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleCart from '../Cart/simpleCart';
+// import SimpleCart from '../Cart/simpleCart';
 import { AppBar, Toolbar, Typography, } from '@mui/material';
 
 
@@ -15,7 +15,7 @@ export default function Header() {
           {/* <IconButton aria-label='cart'> */}
           {/* </IconButton> */}
         </Toolbar>
-      <SimpleCart />
+      {/* <SimpleCart /> */}
       </AppBar>
       <Toolbar />
     </>
