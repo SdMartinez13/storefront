@@ -142,4 +142,7 @@ This will need to use `thunk` as it will be asynchronous
 
 ## Partners
 
-[Luis Rosales](https://github.com/RosalesJr)
+- [Luis Rosales](https://github.com/RosalesJr)
+- [Stephanie Hill](https://github.com/stephnitis)
+- [Tyler Main](https://github.com/TylerofArk)
+- [Junyoung Son](https://github.com/Junyoungson808)
