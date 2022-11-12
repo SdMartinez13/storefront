@@ -1,18 +1,18 @@
-import './App.css';
-import Header from './components/Header/header';
-import Footer from './components/Footer/footer';
+import React from 'react';
+import Header from './components/Header/header'
+import Footer from './components/Footer/footer'
 import Categories from './components/Categories/categories';
-import ProductList from './components/Categories/ProductList';
+import CategoriesList from './components/Categories/ProductList';
 
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
       <Categories />
-      <ProductList />
+      <CategoriesList />
       <Footer />
-    </div>
+    </>
   );
 }
 

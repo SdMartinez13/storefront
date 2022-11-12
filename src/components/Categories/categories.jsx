@@ -1,71 +1,40 @@
-import React from 'react';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Typography from '@mui/material/Typography';
+import { filterCategory } from '../../store/Reducers/Categories';
 import { connect } from 'react-redux';
-import { changeCategory } from '../../store/categoryReducer';
-// import { useState } from 'react';
-// import ButtonGroup from '@mui/material/ButtonGroup';
-// import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 
 
 const Categories = (props) => {
 
-  // const { changeCategory } = props;
+  const { filterCategory } = props;
 
-  const [value, setValue] = React.useState(0, 1, 2);
-
-  const handleChange = (event, newValue) => {
-    event.preventDefault();
-    setValue(newValue);
-  };
   return (
     <>
-      {/* <h1>Categories</h1>
-
-      <ButtonGroup >
-
-        <Button onClick={() => changeCategory('food')}>Food</Button>
-        <Button onClick={() => changeCategory('clothing')}>Clothing</Button>
-        <Button onClick={() => changeCategory('electronics')}>Electronics</Button>
-
-      </ButtonGroup> */}
-
-      <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        <Tabs 
-          value={value}
-          onChange={handleChange}
-          textColor="inherit"
-          indicatorColor="secondary"
-          aria-label="secondary tabs example"
-          centered
-        >
-          {
-            props.categories.map((category, index) => (
-
-              <Tab key={`category-${index}`} onClick={() => props.changeCategory(category.name)} label={category.displayName} />
-            ))
-
-          }
-          {/* <Tab onClick={() => props.changeCategory('electronics')} label="Electronics" />
-          <Tab onClick={() => props.changeCategory('food')} label="Food" /> */}
-        </Tabs>
-      </Box>
-
+      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        Browse our Categories
+      </Typography>
+    {
+      props.categories.map((category, index) => (
+      <ButtonGroup key={`category-${index}`} variant="text" aria-label="text button group">
+        <Button onClick={() => filterCategory(category.name)}>{category.displayName}</Button>
+      </ButtonGroup>
+      ))
+    }
     </>
-  );
-};
+  )
+}
 
-const mapsStateToProps = (state) => {
-
+const mapStateToProps = ({ productReducer, categoryReducer }) => {
   return {
-    categories: state.category.categories,
-  };
-};
+    products: productReducer.products,
+    categories: categoryReducer.categories,
+  }
+}
 
 const mapDispatchToProps = {
-  changeCategory,
-};
+  filterCategory,
+}
 
-export default connect(mapsStateToProps, mapDispatchToProps)(Categories);
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);
 

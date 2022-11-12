@@ -1,71 +1,69 @@
-import * as React from 'react';
-import { addItemToCart, removeItemFromCart } from '../../store/cartReducer';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import { connect } from 'react-redux';
-import './ProductList.css';
+import { addItemToCart } from '../../store/Reducers/Cart';
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import CardActions from '@mui/material/CardActions';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import InfoIcon from '@mui/icons-material/Info';
+import Stack from '@mui/material/Stack';
 
 const List = (props) => {
-  console.log('PRODUCTLIST', props);
-  const products = props.products.filter(product => product.category === props.activeCategory);
-  
+
+  const { addItemToCart } = props;
+
   return (
     <>
       {
-        products.map((product, index) => (
-          <div key={`products-${index}`}>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                component="img"
-                alt=""
-                height="140"
-                image=""
-              />
-              <CardContent className='card'>
-                <Typography gutterBottom variant="h5" component="div">
-                  {product.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  ${product.price}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {product.inventory}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button onClick={() => props.addItemToCart(product)}
-                  variant="outlined"
-                  size="small">Add To Cart
-                </Button>
-                <Button
-                  onClick={() => props.removeItemFromCart(product)} variant="outlined"
-                  color="error" size="small">Remove from Cart
-                </Button>
-              </CardActions>
-            </Card>
-          </div>
+        props.list.map((product, index) => (
+          <Card  sx={{ maxWidth: 345 }} key={`product-${index}`}>
 
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {product.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                ${product.price}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Quantity In Stock: {product.inventory}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Stack direction="row" spacing={1}>
+                <IconButton 
+                onClick={() => addItemToCart(product)}
+                color="primary" 
+                aria-label="add to shopping cart"
+                >
+                  <ShoppingCartIcon />
+                </IconButton>
+                <IconButton aria-label="delete">
+                  <InfoIcon />
+                </IconButton>
+              </Stack>
+            </CardActions>
+          </Card>
         ))
       }
     </>
   )
 }
 
-const mapStateToProps = ({ category }) => {
+const mapStateToProps = ({ productReducer, cartReducer }) => {
   return {
-    activeCategory: category.activeCategory,
-    products: category.products,
+    list: productReducer.products,
+    cart: cartReducer,
   }
 }
 
 const mapDispatchToProps = {
   addItemToCart,
-  removeItemFromCart,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);
+
+
+
