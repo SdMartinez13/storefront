@@ -47,7 +47,6 @@
 
 - [Stephanie Hill](https://github.com/stephnitis)
 
-
 # Lab 37: Redux-combined Reducers
 
 - Virtual Store Phase 1: For this assignment, you will be starting the process of creating an e-Commerce storefront using React with Redux, coupled with your live API server
@@ -104,3 +103,43 @@
 
 ## Partners
 
+# Lab 38: Asynchronous Actions
+
+- Virtual Store Phase 3: Connect the Virtual Store to an API to retrieve live data from your data source, using thunk to enable asynchronous actions
+
+## Phase 2 Requirements
+
+- In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
+
+- The user stories from Phases 1 and 2 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+
+  - As a user, I want to interact with live inventory so that I have confidence that the displayed products are in stock
+  - As a user, I want to know to that when I add an item to my cart, that it is removed from inventory so that no other users can purchase it
+
+
+## Technical Requirements/Notes
+
+- And as developers, here are the high level development tasks that address the above end user requirements and workflow
+
+  - Continue to use Material UI Components for layout and styling
+  - Load the category and product list from a remote API on page load.
+  - Update the product quantity in stock when adding items to (or removing from) the cart
+  - Continue to use multiple reducers
+- **Notes on State Management**
+
+  - You will need to use `useEffect()` to dispatch a load action on the initial page load
+This will need to use `thunk` as it will be asynchronous
+  - When adding/removing/updating items in the cart, the action/reducer will need to update the server
+    - Perform the appropriate `post`, `put`, or `delete` action via API call (using thunk in an async action) on each of these actions as performed by the users
+
+
+## UML
+- ![UML]()
+
+- [REPO](https://github.com/SdMartinez13/storefront)
+- [PR](https://github.com/SdMartinez13/storefront/pull/2)
+- [Code Sandbox](https://codesandbox.io/p/github/SdMartinez13/storefront/draft/shy-cookies?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522cla7swtxo000rl0f051aferfz%2522%252C%2522openFiles%2522%253A%255B%2522%252FREADME.md%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522key%2522%253A%2522cla7synlc00f03b6hgk2vouir%2522%252C%2522type%2522%253A%2522PROJECT_SETUP%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522cla7sxhmj007g3b6hwcdop3d7%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522cla7sxeob005i3b6hujtibljb%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D) Code Sandbox would not let me copy the redux branch so this is the main
+
+## Partners
+
+[Luis Rosales](https://github.com/RosalesJr)
